@@ -1,63 +1,52 @@
-Data Warehouse & Analytics Project
+Data Warehouse
 
-This repository demonstrates an end-to-end data warehouse implementation using SQL Server and Medallion Architecture (Bronze → Silver → Gold).
-The project focuses on data engineering fundamentals, clean transformations, and analytics-ready modeling.
+End-to-end data warehouse implementation using SQL Server and Medallion Architecture (Bronze → Silver → Gold), focused on clean transformations and analytics-ready data.
 
-🏗️ Architecture Overview
+Architecture
 
-The warehouse is structured using the Medallion Architecture:
+Bronze: Raw CSV ingestion (ERP & CRM)
 
-Bronze Layer
-Raw data ingestion from CSV files (ERP & CRM sources) into SQL Server.
+Silver: Cleansing, deduplication, normalization, type enforcement
 
-Silver Layer
-Data cleansing, standardization, deduplication, and type enforcement.
+Gold: Star-schema models for analytics
 
-Gold Layer
-Business-ready data modeled into a star schema for analytics and reporting.
+What This Covers
 
-📌 Project Scope
+ETL pipelines across warehouse layers
 
-Designed a modern data warehouse using SQL Server
+Data quality rules and validation
 
-Built ETL pipelines to move data across Bronze, Silver, and Gold layers
+Fact & dimension modeling
 
-Applied data quality rules (null handling, normalization, validation)
+Analytical SQL on sales, customers, and products
 
-Created fact and dimension tables optimized for analytical queries
+Latest-snapshot design (no historization).
 
-Performed SQL-based analytics on sales, customers, and products
+Tech
 
-Focus is on the latest snapshot of data (no historization).
+SQL Server (Express) · SQL
+Medallion Architecture · ETL · Star Schema · Data Quality · Analytics SQL
 
-🛠️ Tech Stack
+Outcome
 
-Database: SQL Server (Express)
+Hands-on experience in data warehousing, SQL-based ETL, and analytics-oriented modeling.
 
-Language: SQL
+🧠 Key Design Decisions
 
-Concepts:
+Medallion Architecture (Bronze → Silver → Gold)
+Chosen to clearly separate raw ingestion, data cleansing, and analytics-ready modeling, improving maintainability and scalability.
 
-Medallion Architecture
+SQL Server as the Warehouse Engine
+Used to focus on core data warehousing concepts—ETL, modeling, and query optimization—without cloud vendor lock-in.
 
-ETL Pipelines
+Silver Layer as the Quality Gate
+All data quality rules (null handling, deduplication, normalization, type enforcement) are applied in the Silver layer to ensure clean downstream analytics.
 
-Data Modeling (Star Schema)
+Star Schema in the Gold Layer
+Fact and dimension tables are designed to optimize analytical queries and simplify reporting use cases.
 
-Data Cleansing & Validation
+Latest Snapshot Strategy
+The warehouse maintains only the most recent state of data to reduce complexity and keep the focus on transformation logic rather than historization.
 
-Analytical SQL
-
-🎯 Learning Outcomes
-
-This project showcases practical experience in:
-
-Data Warehousing
-
-SQL-based ETL Development
-
-Data Cleaning & Transformation
-
-Dimensional Modeling
-
-Analytics-Oriented Design
+Explicit Transformations Over Implicit Casting
+Data types are explicitly cast during transformations to avoid hidden bugs and ensure predictable analytical behavior.
